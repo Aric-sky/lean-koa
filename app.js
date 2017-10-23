@@ -4,6 +4,7 @@ const path = require('path');
 
 const AV = require('leanengine');
 const Koa = require('koa');
+var cors = require('koa-cors');
 const Router = require('koa-router');
 const views = require('koa-views');
 const statics = require('koa-static');
@@ -14,11 +15,15 @@ require('./cloud');
 
 const app = new Koa();
 
+app.use(cors());
+
 // 设置模版引擎
 app.use(views(path.join(__dirname, 'views')));
 
 // 设置静态资源目录
 app.use(statics(path.join(__dirname, 'public')));
+
+
 
 const router = new Router();
 app.use(router.routes());
@@ -28,12 +33,21 @@ app.use(AV.koa());
 
 app.use(bodyParser());
 
-router.get('/', async function(ctx) {
+router.get('/', async function(ctx, next) {
   ctx.state.currentTime = new Date();
   await ctx.render('./index.ejs');
 });
 
+
 // 可以将一类的路由单独保存在一个文件中
 app.use(require('./routes/todos').routes());
+
+
+//最后的中间件404页面
+app.use(async function(ctx, next){
+	await ctx.render("./err.ejs");
+})
+
+
 
 module.exports = app;

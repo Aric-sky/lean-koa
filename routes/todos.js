@@ -2,7 +2,6 @@
 
 const AV = require('leanengine');
 const Router = require('koa-router');
-
 const router = new Router({prefix: '/todos'});
 
 const Todo = AV.Object.extend('Todo');
@@ -30,6 +29,7 @@ router.get('/', async function(ctx) {
 router.post('/', async function(ctx) {
   const content = ctx.request.body.content;
   console.log(content);
+  console.log("in post");
   ctx.body = content;
   var todo = new Todo();
   todo.set('content', content);
