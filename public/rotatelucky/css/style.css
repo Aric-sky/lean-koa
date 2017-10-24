@@ -1,0 +1,46 @@
+/* CSS Document */
+*{margin:0;padding:0;font-size:12px;}
+@media screen and (min-width:801px){
+input,button,select,textarea{outline:none;}
+ul,li,dl,ol{list-style:none;}
+a{color:#666; text-decoration:none;}
+
+.box{ width:100%; margin:0 auto; }
+.bcon{ width:220px; border:30px solid #00b7ee;position: absolute;top:300px;left:200px;border-radius: 20px;}
+.bcon h1{ border-bottom:1px solid #eee; padding:0 10px;background: #00b7ee;}
+.bcon h1 b{ font:bold 14px/40px '宋体'; padding:0 20px; margin-top:-1px; display:inline-block;color: #fff;font-size: 30px;}
+
+.list_lh{ height:400px; overflow:hidden;}
+.list_lh li{ padding:10px;background: #e5e5e5;border-bottom:1px solid #fff;  }
+.list_lh li p{ height:24px; line-height:24px;margin-left:15px; }
+.list_lh li p a{ float:left;}
+.list_lh li p em{ width:80px; font:normal 12px/24px Arial; color:#FF3300; float:right; display:inline-block;}
+.list_lh li p span{ color:#999; float:right;}
+.list_lh li p a.btn_lh{ background:#28BD19; height:17px; line-height:17px; color:#fff; padding:0 5px; margin-top:4px; display:inline-block; float:right;}
+.btn_lh:hover{ color:#fff; text-decoration:none;}
+
+.btm p{ font:normal 12px/24px 'Microsoft YaHei'; text-align:center;}
+
+}
+
+@media screen and (max-width:800px){
+input,button,select,textarea{outline:none;}
+ul,li,dl,ol{list-style:none;}
+a{color:#666; text-decoration:none;}
+
+.box{ width:100%; margin:0 auto; }
+.bcon{ width:220px;height: 300px; border:20px solid #00b7ee;position: absolute;top:400px;left:10%;border-radius: 20px;overflow: hidden;}
+.bcon h1{ border-bottom:1px solid #eee; padding:0 10px;background: #00b7ee;}
+.bcon h1 b{ font:bold 14px/40px '宋体'; padding:0 20px; margin-top:-1px; display:inline-block;color: #fff;font-size: 30px;}
+
+.list_lh{ height:400px; overflow:hidden;}
+.list_lh li{ padding:10px;background: #e5e5e5;border-bottom:1px solid #fff;  }
+.list_lh li p{ height:24px; line-height:24px;margin-left:15px; }
+.list_lh li p a{ float:left;}
+.list_lh li p em{ width:80px; font:normal 12px/24px Arial; color:#FF3300; float:right; display:inline-block;}
+.list_lh li p span{ color:#999; float:right;}
+.list_lh li p a.btn_lh{ background:#28BD19; height:17px; line-height:17px; color:#fff; padding:0 5px; margin-top:4px; display:inline-block; float:right;}
+.btn_lh:hover{ color:#fff; text-decoration:none;}
+
+.btm p{ font:normal 12px/24px 'Microsoft YaHei'; text-align:center;}
+}

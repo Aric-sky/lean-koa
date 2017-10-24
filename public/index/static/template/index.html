@@ -2,9 +2,167 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>首页</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="../css/font-awesome.css">
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- bootstrap -->
+  <style>
+  	body{
+    	background-color: #f3f3f4;
+  	}
+		.wrapper-content {
+		    padding: 20px;
+		}
+		.ibox {
+		    clear: both;
+		    margin-bottom: 25px;
+		    margin-top: 0;
+		    padding: 0;
+		}
+		.ibox-title{
+	    background-color: #fff;
+	    border-color: #e7eaec;
+	    -webkit-border-image: none;
+	    -o-border-image: none;
+	    border-image: none;
+	    border-style: solid solid none;
+	    border-width: 4px 0 0;
+	    color: inherit;
+	    margin-bottom: 0;
+	    padding: 14px 15px 7px;
+	    min-height: 48px;
+		}
+		.ibox-content{
+			clear: both;
+	    background-color: #fff;
+	    color: inherit;
+	    padding: 15px 20px 20px;
+	    border-color: #e7eaec;
+	    -webkit-border-image: none;
+	    -o-border-image: none;
+	    border-image: none;
+	    border-style: solid solid none;
+	    border-width: 1px 0;
+		}
+		.no-padding {
+	    padding: 0!important;
+		}
+		.git-icon{
+			width: 20px;
+			height: 20px;
+		}
+  </style>
 </head>
 <body>
-	这是主页
+
+<div class="wrapper wrapper-content">
+  <div class="row">
+    <div class="col-sm-7">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h5>更新日志</h5>
+        </div>
+        <div class="ibox-content no-padding">
+          <div class="panel-body">
+            <div class="panel-group" id="version">
+
+<!--               <div class="panel panel-default">
+                  <div class="panel-heading">
+                      <h5 class="panel-title">
+                          <a data-toggle="collapse" data-parent="#version" href="#v41">v4.1.0</a>
+                      </h5>
+                  </div>
+                  <div id="v41" class="panel-collapse collapse in">
+                      <div class="panel-body">
+                          <ol>
+                              <li>增加不支持IE8的页面提示</li>
+                              <li>修复页面链接和表单提交默认在新窗口中打开的问题</li>
+                              <li>更新suggest插件，修复错位问题</li>
+                              <li>升级bootstrap版本到3.3.6版本</li>
+                              <li>升级layer到2.1版本</li>
+                              <li>升级echarts到2.2.7版本</li>
+                              <li>升级webuploader到0.1.5版本</li>
+                              <li>修复网络条件不好情况下，页面加载提示遮挡页面无法操作的问题</li>
+                          </ol>
+                      </div>
+                  </div>
+              </div> -->
+
+<!--               <div class="panel panel-default">
+                  <div class="panel-heading">
+                      <h4 class="panel-title">
+                          <a data-toggle="collapse" data-parent="#version" href="#v11">v1.1.0</a>
+                      </h4>
+                  </div>
+                  <div id="v11" class="panel-collapse collapse">
+                      <div class="panel-body">
+                          <ol>
+                              <li>修复了几处问题。</li>
+                          </ol>
+                      </div>
+                  </div>
+              </div> -->
+              <div class="panel panel-default">
+                  <div class="panel-heading">
+                      <h4 class="panel-title">
+                          <a data-toggle="collapse" data-parent="#version" href="#v10">v1.0.0</a>
+                      </h4>
+                  </div>
+                  <div id="v10" class="panel-collapse collapse in">
+                      <div class="panel-body">
+                          <ul>
+                              <li>Aric-Project Factory首次发布上线</li>
+                              <li>加入页面：</li>
+                              <ol>
+                              	<li>抽奖类--多人幸运抽奖</li>
+                              	<li>抽奖类--九宫格抽奖</li>
+                              </ol>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-5">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>划重点</h5>
+            </div>
+            <div class="ibox-content">
+              <p>本站的用途：</p>
+              <ol>
+                  <li>用于个人项目的展示，不涉及商业活动</li>
+                  <li>各类项目的归类、整合</li>
+              </ol>
+              <hr>
+              <div class="alert alert-warning">
+                 个人邮箱地址：<br>wangyuanqi518@163.com
+              </div>
+              <div class="alert alert-warning">
+								Github传送门：<br>
+								<img src="https://img.alicdn.com/tfs/TB1c1pUmPihSKJjy0FeXXbJtpXa-32-32.png" class="git-icon">
+								<a href="https://github.com/Aric-sky" target="_blank">https://github.com/Aric-sky</a>
+              </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  <!-- jquery -->
+  <script src="../js/jquery-1.11.3.js"></script>
+  <!-- bootstrap -->
+	<script src="../js/bootstrap.min.js"></script>
+	<!-- bootstrap -->
 </body>
 </html>
