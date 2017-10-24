@@ -54,9 +54,33 @@
 			width: 20px;
 			height: 20px;
 		}
+    .dashboard-header {
+        border-top: 0;
+        padding: 20px;
+        background: #fff;
+    }
+    .border-bottom {
+        border-bottom: 1px solid #e7eaec!important;
+    }
+
+
   </style>
 </head>
 <body>
+
+<div class="row  border-bottom dashboard-header">
+    <div class="col-sm-12">
+        <blockquote class="text-warning" style="font-size:14px">
+          本站主要用到的技术：<br>
+          nodejs，koa，bootstrap，jQuery
+        </blockquote>
+
+        <hr>
+    </div>
+</div>
+
+
+
 
 <div class="wrapper wrapper-content">
   <div class="row">
@@ -91,27 +115,28 @@
                   </div>
               </div> -->
 
-<!--               <div class="panel panel-default">
+              <div class="panel panel-default">
                   <div class="panel-heading">
                       <h4 class="panel-title">
                           <a data-toggle="collapse" data-parent="#version" href="#v11">v1.1.0</a>
                       </h4>
                   </div>
-                  <div id="v11" class="panel-collapse collapse">
+                  <div id="v11" class="panel-collapse collapse in">
                       <div class="panel-body">
                           <ol>
-                              <li>修复了几处问题。</li>
+                              <li>加入转盘抽奖和老虎机抽奖。</li>
+                              <li>修复页卡切换问题</li>
                           </ol>
                       </div>
                   </div>
-              </div> -->
+              </div>
               <div class="panel panel-default">
                   <div class="panel-heading">
                       <h4 class="panel-title">
                           <a data-toggle="collapse" data-parent="#version" href="#v10">v1.0.0</a>
                       </h4>
                   </div>
-                  <div id="v10" class="panel-collapse collapse in">
+                  <div id="v10" class="panel-collapse collapse">
                       <div class="panel-body">
                           <ul>
                               <li>Aric-Project Factory首次发布上线</li>
