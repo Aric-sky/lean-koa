@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+  
+
+  <style>
+        body {
+          font-family: "Avenir", "Helvetica Neue", Helvetica, Arial, sans-serif;
+          background: #79a8ae;
+          color: #666;
+          font-size: 16px;
+          line-height: 1.5em;
+          overflow: hidden;
+        }
+
+        h1 {
+          color: #111;
+          margin: 0 0 12px 0;
+          font-size: 24px;
+          line-height: 1.5em;
+        }
+
+        p {
+          margin: 0 0 10x 0;
+        }
+
+        a {
+          color: #888;
+          text-decoration: none;
+          border-bottom: 1px solid #ccc;
+        }
+
+        a:hover {
+          border-bottom-color: #888;
+        }
+
+        body,
+        .overlay {
+          -webkit-perspective: 1000;
+          -webkit-perspective-origin-y: 25%;
+        }
+
+        .body--ready {
+          /* Ideas
+          background: -webkit-linear-gradient(top, #e2b986 -10%, #241c35 140%);
+          background: -webkit-linear-gradient(top, #c97369 -40%, #241c35 130%);
+          background: -webkit-linear-gradient(top, #fac4c4 -10%, #606386 140%);
+          background: -webkit-linear-gradient(top, #519ab0 0%, #414A6D 110%);
+          background: -webkit-linear-gradient(top, rgb(129, 0, 170) 0%, rgb(43, 4, 114) 110%);
+          background: -webkit-linear-gradient(top, rgb(163, 235, 189) 0%, rgb(16, 93, 145) 110%);
+          background: -webkit-linear-gradient(top, rgb(165, 103, 189) 0%, rgb(75, 233, 214) 120%);
+          */
+
+          background: -webkit-linear-gradient(top, rgb(203, 235, 219) 0%, rgb(55, 148, 192) 120%);
+          background: -moz-linear-gradient(top, rgb(203, 235, 219) 0%, rgb(55, 148, 192) 120%);
+          background: -o-linear-gradient(top, rgb(203, 235, 219) 0%, rgb(55, 148, 192) 120%);
+          background: -ms-linear-gradient(top, rgb(203, 235, 219) 0%, rgb(55, 148, 192) 120%);
+          background: linear-gradient(top, rgb(203, 235, 219) 0%, rgb(55, 148, 192) 120%);
+        }
+
+        .body--ready .overlay {
+          -webkit-transition: -webkit-transform 0.7s cubic-bezier(0.694, 0.0482, 0.335, 1),
+                              opacity 0.7s cubic-bezier(0.694, 0.0482, 0.335, 1);
+          -moz-transition: -moz-transform 0.7s cubic-bezier(0.694, 0.0482, 0.335, 1),
+                              opacity 0.7s cubic-bezier(0.694, 0.0482, 0.335, 1);
+          -ms-transition: -ms-transform 0.7s cubic-bezier(0.694, 0.0482, 0.335, 1),
+                              opacity 0.7s cubic-bezier(0.694, 0.0482, 0.335, 1);
+          -o-transition: -o-transform 0.7s cubic-bezier(0.694, 0.0482, 0.335, 1),
+                              opacity 0.7s cubic-bezier(0.694, 0.0482, 0.335, 1);
+          transition: transform 0.7s cubic-bezier(0.694, 0.0482, 0.335, 1),
+                              opacity 0.7s cubic-bezier(0.694, 0.0482, 0.335, 1);
+        }
+
+
+        .ui {
+          position: absolute;
+          left: 50%;
+          bottom: 5%;
+          width: 300px;
+          margin-left: -150px;
+        }
+
+        .ui-input {
+          width: 100%;
+          height: 50px;
+          background: none;
+          font-size: 24px;
+          font-weight: bold;
+          color: #fff;
+          text-align: center;
+          border: none;
+          border-bottom: 2px solid white;
+        }
+
+        .ui-input:focus {
+          outline: none;
+          border: none;
+          border-bottom: 2px solid white;
+        }
+
+        .ui-return {
+          display: none;
+          position: absolute;
+          top: 20px;
+          right: 0;
+          padding: 3px 2px 0 2px;
+          font-size: 10px;
+          line-height: 10px;
+          color: #fff;
+          border: 1px solid #fff;
+        }
+
+        .ui--enter .ui-return {
+          display: block;
+        }
+
+        .ui--wide {
+          width: 76%;
+          margin-left: 12%;
+          left: 0;
+        }
+
+        .ui--wide .ui-return {
+          right: -20px;
+        }
+
+        .help {
+          position: absolute;
+          top: 40px;
+          right: 40px;
+          width: 25px;
+          height: 25px;
+          text-align: center;
+          font-size: 13px;
+          line-height: 27px;
+          font-weight: bold;
+          cursor: pointer;
+          background: #fff;
+          color: #79a8ae;
+          opacity: .9;
+
+          -webkit-transition: opacity 0.1s cubic-bezier(0.694, 0.0482, 0.335, 1);
+          -moz-transition: opacity 0.1s cubic-bezier(0.694, 0.0482, 0.335, 1);
+          -ms-transition: opacity 0.1s cubic-bezier(0.694, 0.0482, 0.335, 1);
+          -o-transition: opacity 0.1s cubic-bezier(0.694, 0.0482, 0.335, 1);
+          transition: opacity 0.1s cubic-bezier(0.694, 0.0482, 0.335, 1);
+        }
+
+        .help:hover {
+          opacity: 1;
+        }
+
+        .overlay {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 550px;
+          height: 490px;
+          margin: -260px 0 0 -275px;
+          opacity: 0;
+
+          -webkit-transform: rotateY(90deg);
+          -moz-transform: rotateY(90deg);
+          -ms-transform: rotateY(90deg);
+          -o-transform: rotateY(90deg);
+          transform: rotateY(90deg);
+        }
+
+        .overlay--visible {
+          opacity: 1;
+
+          -webkit-transform: rotateY(0);
+          -moz-transform: rotateY(0);
+          -ms-transform: rotateY(0);
+          -o-transform: rotateY(0);
+          transform: rotateY(0);
+        }
+
+        .ui-share,
+        .ui-details {
+          opacity: .9;
+          background: #fff;
+          z-index: 2;
+        }
+
+        .ui-details-content,
+        .ui-share-content {
+          padding: 100px 50px;
+        }
+
+        .commands {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+          cursor: pointer;
+        }
+
+        .commands-item {
+          font-size: 12px;
+          line-height: 22px;
+          font-weight: bold;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          padding: 20px;
+          background: #fff;
+          margin-top: 1px;
+          color: #333;
+          opacity: .9;
+
+          -webkit-transition: -webkit-transform 0.7s cubic-bezier(0.694, 0.0482, 0.335, 1),
+                              opacity 0.1s cubic-bezier(0.694, 0.0482, 0.335, 1);
+          -moz-transition: -moz-transform 0.1s cubic-bezier(0.694, 0.0482, 0.335, 1),
+                              opacity 0.1s cubic-bezier(0.694, 0.0482, 0.335, 1);
+          -ms-transition: -ms-transform 0.1s cubic-bezier(0.694, 0.0482, 0.335, 1),
+                              opacity 0.1s cubic-bezier(0.694, 0.0482, 0.335, 1);
+          -o-transition: -o-transform 0.1s cubic-bezier(0.694, 0.0482, 0.335, 1),
+                              opacity 0.1s cubic-bezier(0.694, 0.0482, 0.335, 1);
+          transition: transform 0.1s cubic-bezier(0.694, 0.0482, 0.335, 1),
+                              opacity 0.1s cubic-bezier(0.694, 0.0482, 0.335, 1);
+        }
+
+        .commands-item--gap {
+          margin-top: 9px;
+        }
+
+        .commands-item:hover {
+          opacity: 1;
+        }
+
+        .commands-item:hover .commands-item-action {
+          background: #333;
+        }
+
+        .commands-item a {
+          display: inline-block;
+        }
+
+        .commands-item-mode {
+          display: inline-block;
+          margin-left: 3px;
+          font-style: italic;
+          color: #ccc;
+        }
+
+        .commands-item-title {
+          display: inline-block;
+          width: 150px;
+        }
+
+        .commands-item-info {
+          display: inline-block;
+          width: 300px;
+          font-size: 14px;
+          text-transform: none;
+          letter-spacing: 0;
+          font-weight: normal;
+          color: #aaa;
+        }
+
+        .commands-item-action {
+          display: inline-block;
+          float: right;
+          margin-top: 3px;
+          text-transform: uppercase;
+          font-size: 10px;
+          line-height: 10px;
+          color: #fff;
+          background: #90c9d1;
+          padding: 5px 10px 4px 10px;
+          border-radius: 3px;
+        }
+
+        .commands-item:first-child {
+          margin-top: 0;
+        }
+
+        .twitter-share {
+          position: absolute;
+          top: 4px;
+          right: 20px;
+        }
+
+
+        .tabs-labels {
+          margin-bottom: 9px;
+        }
+
+        .tabs-label {
+          display: inline-block;
+          background: #fff;
+          padding: 10px 20px;
+          font-size: 12px;
+          line-height: 22px;
+          font-weight: bold;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          color: #333;
+          opacity: .5;
+          cursor: pointer;
+          margin-right: 2px;
+
+          -webkit-transition: opacity 0.1s cubic-bezier(0.694, 0.0482, 0.335, 1);
+          -moz-transition: opacity 0.1s cubic-bezier(0.694, 0.0482, 0.335, 1);
+          -ms-transition: opacity 0.1s cubic-bezier(0.694, 0.0482, 0.335, 1);
+          -o-transition: opacity 0.1s cubic-bezier(0.694, 0.0482, 0.335, 1);
+          transition: opacity 0.1s cubic-bezier(0.694, 0.0482, 0.335, 1);
+        }
+
+        .tabs-label:hover {
+          opacity: .9;
+        }
+
+        .tabs-label--active {
+          opacity: .9;
+        }
+
+        .tabs-panel {
+          display: none;
+        }
+
+        .tabs-panel--active {
+          display: block;
+        }
+
+        .tab-panel {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+        }
+
+        .touch .ui-input {
+          display: none;
+        }
+  </style>
+    
+
+</head>
+<body>
+
+<div class="help">?</div> 
+
+<div class="ui">
+  <input class="ui-input" type="text" />
+  <span class="ui-return">↵</span>
+</div>
+
+<div class="overlay">
+  <div class="tabs">
+    <div class="tabs-labels"><span class="tabs-label">Commands</span><span class="tabs-label">Info</span><span class="tabs-label">Share</span></div>
+
+    <div class="tabs-panels">
+      <ul class="tabs-panel commands">
+        <li class="commands-item"><span class="commands-item-title">Text</span><span class="commands-item-info" data-demo="Hello :)">Type anything</span><span class="commands-item-action">Demo</span></li>
+        <li class="commands-item"><span class="commands-item-title">Countdown</span><span class="commands-item-info" data-demo="#countdown 10">#countdown<span class="commands-item-mode">number</span></span><span class="commands-item-action">Demo</span></li>
+        <li class="commands-item"><span class="commands-item-title">Time</span><span class="commands-item-info" data-demo="#time">#time</span><span class="commands-item-action">Demo</span></li>
+        <li class="commands-item"><span class="commands-item-title">Rectangle</span><span class="commands-item-info" data-demo="#rectangle 30x15">#rectangle<span class="commands-item-mode">width x height</span></span><span class="commands-item-action">Demo</span></li>
+        <li class="commands-item"><span class="commands-item-title">Circle</span><span class="commands-item-info" data-demo="#circle 25">#circle<span class="commands-item-mode">diameter</span></span><span class="commands-item-action">Demo</span></li>
+
+        <li class="commands-item commands-item--gap"><span class="commands-item-title">Animate</span><span class="commands-item-info" data-demo="The time is|#time|#countdown 3|#icon thumbs-up"><span class="commands-item-mode">command1</span>&nbsp;|<span class="commands-item-mode">command2</span></span><span class="commands-item-action">Demo</span></li>
+      </ul>
+
+      <div class="tabs-panel ui-details">
+        <div class="ui-details-content">
+          <h1>Shape Shifter</h1>
+          <p>
+            An experiment by <a href="//www.kennethcachia.com" target="_blank">Kenneth Cachia<a/>.<br/>
+            <a href="//fortawesome.github.io/Font-Awesome/#icons-new" target="_blank">Font Awesome</a> is being used to render all #icons.
+          </p>
+
+          <br/><p>Visit <a href="http://www.kennethcachia.com/shape-shifter/?a=#icon thumbs-up" target="_blank">Shape Shifter</a> to use icons.</p>
+        </div>
+      </div>
+
+      <div class="tabs-panel ui-share">
+        <div class="ui-share-content">
+          <h1>Sharing</h1>
+          <p>Simply add <em>?a=</em> to the current URL to share any static or animated text. Examples:</p>
+          <p>
+            <a href="http://www.kennethcachia.com/shape-shifter?a=Hello" target="_blank">www.kennethcachia.com/shape-shifter?a=Hello</a><br/>
+            <a href="http://www.kennethcachia.com/shape-shifter?a=Hello|#countdown 3" target="_blank">www.kennethcachia.com/shape-shifter?a=Hello|#countdown 3</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+/*
+ * Shape Shifter
+ * http://www.kennethcachia.com/shape-shifter
+ * A canvas experiment
+ */
+
+'use strict';
+var canvas,ctx,pixelRadius,pixelContiner,fontSize=500,fontFamily="Avenir, Helvetica Neue, Helvetica, Arial, sans-serif",shapeShift={init:function(){var a=window.location.href,d=a.indexOf("?a=");shapeShift.Drawing.init(".canvas");shapeShift.ShapeBuilder.init();shapeShift.UI.init();-1!==d?shapeShift.UI.simulate(decodeURI(a).substring(d+3)):shapeShift.UI.simulate("#rectangle 5x5|#circle 25|Aric|Project|Factory|to start|#icon thumbs-up|#countdown 3||");shapeShift.Drawing.loop(function(){shapeShift.Shape.render()})}};
+window.addEventListener("load",function(){canvas=document.createElement("canvas");canvas.id="mainCanvas";canvas.className="canvas";ctx=canvas.getContext("2d");pixelRadius=4;pixelContiner=2*pixelRadius+1;document.body.insertBefore(canvas,document.body.firstChild);document.body.classList.add("body--ready");shapeShift.init()});
+shapeShift.Drawing=function(){var a,d=window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||window.oRequestAnimationFrame||window.msRequestAnimationFrame||function(a){window.setTimeout(a,1E3/60)};return{init:function(a){this.adjustCanvas();window.addEventListener("resize",function(){shapeShift.Drawing.adjustCanvas()})},loop:function(f){a=a?a:f;this.clearFrame();a();d.call(window,this.loop.bind(this))},adjustCanvas:function(){canvas.width=window.innerWidth;
+canvas.height=window.innerHeight},clearFrame:function(){ctx.clearRect(0,0,canvas.width,canvas.height)},getArea:function(){return{w:canvas.width,h:canvas.height}},drawCircle:function(a,b){ctx.fillStyle=b.render();ctx.beginPath();ctx.arc(a.x,a.y,a.r,0,2*Math.PI,!0);ctx.closePath();ctx.fill()}}}();shapeShift.Point=function(a){this.x=a.x;this.y=a.y;this.r=a.r;this.a=a.a;this.h=a.h};shapeShift.Color=function(a,d,f,b){this.r=a;this.g=d;this.b=f;this.a=b};
+shapeShift.Color.prototype={render:function(){return"rgba("+this.r+","+this.g+","+this.b+","+this.a+")"}};
+shapeShift.UI=function(){function a(a){var w=a.getHours();a=a.getMinutes();return w+":"+(10>a?"0"+a:a)}function d(a){return(a=a&&a.split(" ")[0])&&"#"===a[0]&&a.substring(1)}function f(a,e,b,c){clearInterval(r);l=c?b:1;a(l);if(!b||!c&&l<b||c&&0<l)r=setInterval(function(){l=c?l-1:l+1;a(l);(!c&&b&&l===b||c&&0===l)&&clearInterval(r)},e)}function b(a){clearInterval(r);p=[];t=null;a&&shapeShift.Shape.switchShape(shapeShift.ShapeBuilder.letter(""))}function k(b){var h,g;m.classList.remove("overlay--visible");
+p="object"===typeof b?b:p.concat(b.split("|"));c.value="";e();f(function(){g=p.shift();h=d(g);b=g&&g.split(" ")[1];switch(h){case "countdown":b=parseInt(b,10)||10;b=0<b?b:10;f(function(a){0===a?0===p.length?shapeShift.Shape.switchShape(shapeShift.ShapeBuilder.letter("")):k(p):shapeShift.Shape.switchShape(shapeShift.ShapeBuilder.letter(a),!0)},1E3,b,!0);break;case "rectangle":b=(b=b&&b.split("x"))&&2===b.length?b:[30,15];shapeShift.Shape.switchShape(shapeShift.ShapeBuilder.rectangle(Math.min(30,parseInt(b[0],
+10)),Math.min(30,parseInt(b[1],10))));break;case "circle":b=parseInt(b,10)||30;b=Math.min(b,30);shapeShift.Shape.switchShape(shapeShift.ShapeBuilder.circle(b));break;case "time":var c=a(new Date);0<p.length?shapeShift.Shape.switchShape(shapeShift.ShapeBuilder.letter(c)):f(function(){c=a(new Date);c!==t&&(t=c,shapeShift.Shape.switchShape(shapeShift.ShapeBuilder.letter(t)))},1E3);break;case "icon":shapeShift.ShapeBuilder.imageFile("font-awesome/"+b+".png",function(a){shapeShift.Shape.switchShape(a)});
+break;default:shapeShift.Shape.switchShape(shapeShift.ShapeBuilder.letter("#"===g[0]?"What?":g))}},2E3,p.length)}function e(){18<c.value.length?n.classList.add("ui--wide"):n.classList.remove("ui--wide");u&&0<c.value.length?n.classList.add("ui--enter"):n.classList.remove("ui--enter")}function h(){document.body.addEventListener("keydown",function(a){c.focus();13===a.keyCode&&(u=!1,b(),k(c.value))});window.addEventListener("resize",function(){clearTimeout(v);v=setTimeout(function(){shapeShift.Shape.shuffleIdle();
+b(!0)},500)});c.addEventListener("input",e);c.addEventListener("change",e);c.addEventListener("focus",e);g.addEventListener("click",function(){m.classList.toggle("overlay--visible");m.classList.contains("overlay--visible")&&b(!0)});q.addEventListener("click",function(a){var b,e;a=(b=a.target.classList.contains("commands-item")?a.target:a.target.parentNode.classList.contains("commands-item")?a.target.parentNode:a.target.parentNode.parentNode)&&b.querySelector(".commands-item-info");e=b&&a.getAttribute("data-demo");
+b=b&&a.getAttribute("data-url");a&&(m.classList.remove("overlay--visible"),e?(c.value=e,c.focus()):b&&(window.location=b))});canvas.addEventListener("click",function(){m.classList.remove("overlay--visible")})}var c=document.querySelector(".ui-input"),n=document.querySelector(".ui"),g=document.querySelector(".help"),q=document.querySelector(".commands"),m=document.querySelector(".overlay"),r,l,v,t,u=!0,p=[];return{init:function(){h();c.focus();shapeShift.UI.Tabs.init()},simulate:function(a){k(a)}}}();
+shapeShift.UI.Tabs=function(){function a(a){b[a].classList.add("tabs-label--active");k[a].classList.add("tabs-panel--active")}function d(){f.addEventListener("click",function(e){e=e.target;var d;if(e.classList.contains("tabs-label")){for(var c=0;c<b.length;c++)b[c].classList.remove("tabs-label--active"),k[c].classList.remove("tabs-panel--active"),e===b[c]&&(d=c);a(d)}})}var f=document.querySelector(".tabs-labels"),b=document.querySelectorAll(".tabs-label"),k=document.querySelectorAll(".tabs-panel");
+return{init:function(){a(0);d()}}}();shapeShift.Dot=function(a,d){this.p=new shapeShift.Point({x:a,y:d,r:pixelRadius,a:1,h:0});this.e=.07;this.s=!0;this.c=new shapeShift.Color(255,255,255,this.p.a);this.t=this.clone();this.q=[]};
+shapeShift.Dot.prototype={clone:function(){return new shapeShift.Point({x:this.x,y:this.y,r:this.r,a:this.a,h:this.h})},_draw:function(){this.c.a=this.p.a;shapeShift.Drawing.drawCircle(this.p,this.c)},_moveTowards:function(a){var d=this.distanceTo(a,!0),f=d[0],b=d[1],d=d[2],k=this.e*d;if(-1===this.p.h)return this.p.x=a.x,this.p.y=a.y,!0;if(1<d)this.p.x-=f/d*k,this.p.y-=b/d*k;else if(0<this.p.h)this.p.h--;else return!0;return!1},_update:function(){var a;this._moveTowards(this.t)&&((a=this.q.shift())?
+(this.t.x=a.x||this.p.x,this.t.y=a.y||this.p.y,this.t.r=a.r||this.p.r,this.t.a=a.a||this.p.a,this.p.h=a.h||0):this.s?(this.p.x-=Math.sin(3.142*Math.random()),this.p.y-=Math.sin(3.142*Math.random())):this.move(new shapeShift.Point({x:this.p.x+50*Math.random()-25,y:this.p.y+50*Math.random()-25})));a=this.p.a-this.t.a;this.p.a=Math.max(.1,this.p.a-.05*a);a=this.p.r-this.t.r;this.p.r=Math.max(1,this.p.r-.05*a)},distanceTo:function(a,d){var f=this.p.x-a.x;a=this.p.y-a.y;var b=Math.sqrt(f*f+a*a);return d?
+[f,a,b]:b},move:function(a,d){(!d||d&&1<this.distanceTo(a))&&this.q.push(a)},render:function(){this._update();this._draw()}};
+shapeShift.ShapeBuilder=function(){function a(){canvas.width=Math.floor(window.innerWidth/pixelContiner)*pixelContiner;canvas.height=Math.floor(window.innerHeight/pixelContiner)*pixelContiner;ctx.fillStyle="red";ctx.textBaseline="middle";ctx.textAlign="center"}function d(){for(var a=ctx.getImageData(0,0,canvas.width,canvas.height).data,d=[],e=0,h=0,c=canvas.width,f=canvas.height,g=0,q=0,m=0;m<a.length;m+=4*pixelContiner)0<a[m+3]&&(d.push(new shapeShift.Point({x:e,y:h})),g=e>g?e:g,q=h>q?h:q,c=e<c?
+e:c,f=h<f?h:f),e+=pixelContiner,e>=canvas.width&&(e=0,h+=pixelContiner,m+=4*pixelContiner*canvas.width);return{dots:d,w:g+c,h:q+f}}function f(a){return!isNaN(parseFloat(a))&&isFinite(a)}return{init:function(){a();window.addEventListener("resize",a)},imageFile:function(a,f){var b=new Image,h=shapeShift.Drawing.getArea();b.onload=function(){ctx.clearRect(0,0,canvas.width,canvas.height);ctx.drawImage(this,0,0,.6*h.h,.6*h.h);f(d())};b.onerror=function(){f(shapeShift.ShapeBuilder.letter("What?"))};b.src=
+a},circle:function(a){a=Math.max(0,a)/2;ctx.clearRect(0,0,canvas.width,canvas.height);ctx.beginPath();ctx.arc(a*pixelContiner,a*pixelContiner,a*pixelContiner,0,2*Math.PI,!1);ctx.fill();ctx.closePath();return d()},letter:function(a){var b;ctx.font="bold "+fontSize+"px "+fontFamily;b=Math.min(fontSize,canvas.width/ctx.measureText(a).width*.8*fontSize,canvas.height/fontSize*(f(a)?1:.45)*fontSize);ctx.font="bold "+b+"px "+fontFamily;ctx.clearRect(0,0,canvas.width,canvas.height);ctx.fillText(a,canvas.width/
+2,canvas.height/2);return d()},rectangle:function(a,d){var b=[];a*=pixelContiner;d*=pixelContiner;for(var f=0;f<d;f+=pixelContiner)for(var c=0;c<a;c+=pixelContiner)b.push(new shapeShift.Point({x:c,y:f}));return{dots:b,w:a,h:d}}}}();
+shapeShift.Shape=function(){var a=[],d=0,f=0,b=0,k=0;return{shuffleIdle:function(){for(var b=shapeShift.Drawing.getArea(),d=0;d<a.length;d++)a[d].s||a[d].move({x:Math.random()*b.w,y:Math.random()*b.h})},switchShape:function(e,h){var c,n=shapeShift.Drawing.getArea(),g;d=e.w;f=e.h;g=shapeShift.Drawing.getArea();b=g.w/2-d/2;k=g.h/2-f/2;if(e.dots.length>a.length)for(c=e.dots.length-a.length,g=1;g<=c;g++)a.push(new shapeShift.Dot(n.w/2,n.h/2));for(g=0;0<e.dots.length;)c=Math.floor(Math.random()*e.dots.length),
+a[g].e=h?.25:a[g].s?.14:.11,a[g].s?a[g].move(new shapeShift.Point({r:20*Math.random()+10,a:Math.random(),h:18})):a[g].move(new shapeShift.Point({r:Math.random()*pixelRadius+pixelRadius,h:h?18:30})),a[g].s=!0,a[g].move(new shapeShift.Point({x:e.dots[c].x+b,y:e.dots[c].y+k,a:1,r:pixelRadius,h:0})),e.dots=e.dots.slice(0,c).concat(e.dots.slice(c+1)),g++;for(c=g;c<a.length;c++)a[c].s&&(a[c].move(new shapeShift.Point({r:20*Math.random()+10,a:Math.random(),h:20})),a[c].s=!1,a[c].e=.04,a[c].move(new shapeShift.Point({x:Math.random()*
+n.w,y:Math.random()*n.h,a:.3,r:4*Math.random(),h:0})))},render:function(){for(var b=0;b<a.length;b++)a[b].render()}}}();
+
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+   
+   <style>
+        /*css reset */
+        body,p,div,ol,ul,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,form,input,iframe,nav {
+            margin: 0;
+            padding: 0;
+        }
+        html,body {
+            width: 100%;
+            height: 100%;
+        }
+        body {
+            font: 14px Microsoft YaHei;
+            -webkit-text-size-adjust:100%;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            user-select: none;
+            position: relative;
+            background: #000;
+        }
+        a { 
+            text-decoration: none;
+        }
+        ol,ul {
+            list-style: none;
+        }
+        img { 
+            border: 0;
+        }
+        .wrapper .btn_w {
+            position: absolute;
+            margin: auto;
+            top: 50%;
+            left: 50%;
+            margin-top: -22px;
+            margin-left: -155px;
+            z-index: 10;
+        }
+
+        .wrapper .btn_w .btn {
+            background: transparent url(http://ww3.sinaimg.cn/large/bea70753gw1f2g4snrc2cj203m02e3yb.jpg) no-repeat 0 0;
+            display: inline-block;
+            width: 130px;
+            height: 43px;
+            margin: 0 10px;
+            font: 18px/43px Microsoft YaHei;
+            color: #069;
+            text-align: center;
+            transition: .5s;
+        }
+
+        .wrapper .btn_w .btn:hover {
+            background-position: 0 -43px;
+            color: #27b;
+            box-shadow: 0 0 6px #27b;
+        }
+        #canvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+            opacity: .8;
+        }
+   </style>
+
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<audio class="audio" id="oAu" src="http://m2.music.126.net/_lEPRuhlSTnuPesqWU-W2A==/5792227255321905.mp3" autoplay loop></audio>   <!-- autoplay:自动播放, loop:循环, controls:显示音频控件 -->
+<div class="wrapper" oncontextmenu="return false;">
+    <div class="btn_w">
+        <a class="btn" href="javascript:;">登 录</a>
+        <a class="btn" href="javascript:;">注 册</a>
+    </div>
+</div>
+
+
+
+
+
+
+<script>
+document.getElementById("oAu").volume=.7;"use strict";var canvas=document.getElementById("canvas"),ctx=canvas.getContext("2d"),w=canvas.width=window.innerWidth,h=canvas.height=window.innerHeight,hue=217,stars=[],count=0,maxStars=1100,canvas2=document.createElement("canvas"),ctx2=canvas2.getContext("2d");canvas2.width=100;canvas2.height=100;var half=canvas2.width/2,gradient2=ctx2.createRadialGradient(half,half,0,half,half,half);gradient2.addColorStop(.025,"#CCC");
+gradient2.addColorStop(.1,"hsl("+hue+", 61%, 33%)");gradient2.addColorStop(.25,"hsl("+hue+", 64%, 6%)");gradient2.addColorStop(1,"transparent");ctx2.fillStyle=gradient2;ctx2.beginPath();ctx2.arc(half,half,half,0,2*Math.PI);ctx2.fill();function random(a,b){2>arguments.length&&(b=a,a=0);if(a>b){var c=b;b=a;a=c}return Math.floor(Math.random()*(b-a+1))+a}function maxOrbit(a,b){a=Math.max(a,b);return Math.round(Math.sqrt(a*a+a*a))/2}
+var Star=function(){this.orbitRadius=random(maxOrbit(w,h));this.radius=random(60,this.orbitRadius)/10;this.orbitX=w/2;this.orbitY=h/2;this.timePassed=random(0,maxStars);this.speed=random(this.orbitRadius)/8E4;this.alpha=random(2,10)/10;count++;stars[count]=this};
+Star.prototype.draw=function(){var a=Math.sin(this.timePassed)*this.orbitRadius+this.orbitX,b=Math.cos(this.timePassed)*this.orbitRadius+this.orbitY,c=random(10);1===c&&0<this.alpha?this.alpha-=.05:2===c&&1>this.alpha&&(this.alpha+=.05);ctx.globalAlpha=this.alpha;ctx.drawImage(canvas2,a-this.radius/2,b-this.radius/2,this.radius,this.radius);this.timePassed+=this.speed};for(var i=0;i<maxStars;i++)new Star;
+function animation(){ctx.globalCompositeOperation="source-over";ctx.globalAlpha=.5;ctx.fillStyle="hsla("+hue+", 64%, 6%, 2)";ctx.fillRect(0,0,w,h);ctx.globalCompositeOperation="lighter";for(var a=1,b=stars.length;a<b;a++)stars[a].draw();window.requestAnimationFrame(animation)}animation();
+
+</script>
+
+
+
+</body>
+</html>
