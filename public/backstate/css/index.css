@@ -1,0 +1,42 @@
+/*登陆页-样式开始*/
+html,body{
+  height: 100%;
+  overflow: hidden;
+  padding-bottom: 103px;
+}
+body{
+  margin:0;
+  box-sizing: border-box;
+  font:14px Helvetica Neue,Helvetica,PingFang SC;
+  position:relative;
+  // background: #393D49;
+}
+.container:before{
+  content:'';
+  display:table;
+}
+.container:after{
+  content:'';
+  display: table;
+  clear:both;
+}
+
+.out:before{
+  content:'';
+  display: table;
+  visibility: hidden;
+}
+.out:after{
+  content:'';
+  display: table;
+  visibility: hidden;
+}
+
+
+
+.wrapper .new-list{
+  padding-top: 20px;
+  background: #eee;
+  height: 900px;
+  overflow-y: scroll;
+}
