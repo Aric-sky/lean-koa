@@ -40,3 +40,13 @@ body{
   height: 900px;
   overflow-y: scroll;
 }
+
+
+.new-list>div{
+  cursor: pointer;
+}
+
+.newspre{
+  background: #fff;
+  padding:0 5px;
+}
