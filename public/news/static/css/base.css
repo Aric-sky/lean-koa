@@ -1,0 +1,50 @@
+@charset "utf-8";
+/* CSS layout */
+
+/* 默认样式 */
+html{overflow-y:scroll; overflow-x: hidden;}
+
+ul,li,p,h1,h2,h3,h4,h5,h6,dl,dt,dd {
+  margin:0px;
+  padding:0px;
+  border:none;
+  list-style:none;
+}
+
+.out:before{
+  content:'';
+  display: table;
+  visibility: hidden;
+}
+.out:after{
+  content:'';
+  display: table;
+  visibility: hidden;
+}
+body{
+font-family:"冬青黑体简体中文","微软雅黑","宋体",Arial,sans-serif;
+  margin: 0;
+  padding: 0;
+}
+a{ text-decoration:none; color:#666666; }
+li{ list-style:none; }
+img{ border:none 0;}
+input{ outline:none; border:none; background:none;}
+input,textarea,select{ margin:0; }					
+input,textarea{ padding:0;}
+input::-ms-clear{display:none;}
+
+
+/* 浮动公共样式 */
+
+.lf   {float:left;}
+.rt  {float:right;}
+.clearfix:after{
+  content: '';
+  display: table;
+  clear:both;
+  visibility: hidden;
+  height: 0;
+}
+.clearfix{ zoom:1;}
+
