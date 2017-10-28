@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://cdn.plyr.io/2.0.16/plyr.css">
+</head>
+<body>
+
+
+
+
+
+
+
+<video class="js-player" poster="https://img.alicdn.com/tfs/TB166IAXgnD8KJjy1XdXXaZsVXa-854-446.jpg" controls>
+  <source src="src/birds.mp4" type="video/mp4">
+  <!-- Captions are optional -->
+  <p>无视频源</p>
+</video>
+
+<div></div>
+
+<script src="https://cdn.plyr.io/2.0.16/plyr.js"></script>
+
+<script>
+
+	var options = {};
+
+	var players = plyr.setup(document.querySelectorAll('.js-player'), options);
+
+console.log(players)
+
+
+
+</script>
+
+</body>
+</html>
