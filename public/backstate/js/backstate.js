@@ -1,10 +1,12 @@
 
 
 
+
 //软文提交--为提交按钮绑定click事件
 $('#eSub').click(function(e){
   e.preventDefault();
   var data=$('#formList').serialize();
+  console.log(data);
   $.ajax({
     type:'POST',
     url:'/api/post',
@@ -27,12 +29,13 @@ $('#eSub').click(function(e){
 
 
 !(function(){
-  console.log(2);
+  //执行渲染
+  Editor();
+
   $.ajax({
     type:'GET',
     url:'/api/get',
     success: function(obj){
-      console.log(obj);
       var Templ = "";
       for(var i =0;i<obj.length;i++){
         Templ += `
@@ -89,3 +92,12 @@ function bindBack(){
     location.reload();
   })
 }
+
+//富文本编辑器渲染
+function Editor(){
+  var E = window.wangEditor
+  var editor = new E('#editorHock')
+  editor.create()
+}
+
+

@@ -11,6 +11,8 @@ body{
   position:relative;
   // background: #393D49;
 }
+input,button,select,textarea{outline:none}
+textarea{resize:none;}
 .container:before{
   content:'';
   display:table;
@@ -49,4 +51,9 @@ body{
 .newspre{
   background: #fff;
   padding:0 5px;
+}
+
+
+#esetion{
+  border: 0;
 }
