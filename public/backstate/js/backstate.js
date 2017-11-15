@@ -6,7 +6,10 @@
 $('#eSub').click(function(e){
   e.preventDefault();
   var data=$('#formList').serialize();
-  console.log(data);
+
+  var textBody = $('.w-e-text').html().toString().trim();
+  data = `${data}&textBody=${textBody}`;
+
   $.ajax({
     type:'POST',
     url:'/api/post',
