@@ -6,227 +6,228 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- bootstrap -->
-	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <!-- bootstrap -->
   <style>
-  	body{
-    	background-color: #f3f3f4;
-  	}
-		.wrapper-content {
-		    padding: 20px;
-		}
-		.ibox {
-		    clear: both;
-		    margin-bottom: 25px;
-		    margin-top: 0;
-		    padding: 0;
-		}
-		.ibox-title{
-	    background-color: #fff;
-	    border-color: #e7eaec;
-	    -webkit-border-image: none;
-	    -o-border-image: none;
-	    border-image: none;
-	    border-style: solid solid none;
-	    border-width: 4px 0 0;
-	    color: inherit;
-	    margin-bottom: 0;
-	    padding: 14px 15px 7px;
-	    min-height: 48px;
-		}
-		.ibox-content{
-			clear: both;
-	    background-color: #fff;
-	    color: inherit;
-	    padding: 15px 20px 20px;
-	    border-color: #e7eaec;
-	    -webkit-border-image: none;
-	    -o-border-image: none;
-	    border-image: none;
-	    border-style: solid solid none;
-	    border-width: 1px 0;
-		}
-		.no-padding {
-	    padding: 0!important;
-		}
-		.git-icon{
-			width: 20px;
-			height: 20px;
-		}
-    .dashboard-header {
-        border-top: 0;
-        padding: 20px;
-        background: #fff;
-    }
-    .border-bottom {
-        border-bottom: 1px solid #e7eaec!important;
-    }
+  body{
+   background-color: #f3f3f4;
+ }
+ .wrapper-content {
+  padding: 20px;
+}
+.ibox {
+  clear: both;
+  margin-bottom: 25px;
+  margin-top: 0;
+  padding: 0;
+}
+.ibox-title{
+ background-color: #fff;
+ border-color: #e7eaec;
+ -webkit-border-image: none;
+ -o-border-image: none;
+ border-image: none;
+ border-style: solid solid none;
+ border-width: 4px 0 0;
+ color: inherit;
+ margin-bottom: 0;
+ padding: 14px 15px 7px;
+ min-height: 48px;
+}
+.ibox-content{
+ clear: both;
+ background-color: #fff;
+ color: inherit;
+ padding: 15px 20px 20px;
+ border-color: #e7eaec;
+ -webkit-border-image: none;
+ -o-border-image: none;
+ border-image: none;
+ border-style: solid solid none;
+ border-width: 1px 0;
+}
+.no-padding {
+ padding: 0!important;
+}
+.git-icon{
+ width: 20px;
+ height: 20px;
+}
+.dashboard-header {
+  border-top: 0;
+  padding: 20px;
+  background: #fff;
+}
+.border-bottom {
+  border-bottom: 1px solid #e7eaec!important;
+}
 
 
-  </style>
+</style>
 </head>
 <body>
 
-<div class="row  border-bottom dashboard-header">
+  <div class="row  border-bottom dashboard-header">
     <div class="col-sm-12">
-        <blockquote class="text-warning" style="font-size:14px">
-          本站主要用到的技术：<br>
-          <p>后端：
-            <span class="label label-warning">Nodejs</span>&nbsp;
-            <span class="label label-info">Koa</span>
-          </p>
-          <p>JS库：
-            <span class="label label-warning">VUE</span>&nbsp;
-            <span class="label label-info">jQuery</span>
-          </p>
-          <p>UI库：
-            <span class="label label-warning">Bootstrap</span>
-          </p>
-          <p>其它：
-            <span class="label label-warning">Canvas</span>
-          </p>
-        </blockquote>
-        <!-- <hr> -->
+      <blockquote class="text-warning" style="font-size:14px">
+        本站主要用到的技术：<br>
+        <p>后端：
+          <span class="label label-warning">Nodejs</span>&nbsp;
+          <span class="label label-info">Koa</span>
+        </p>
+        <p>JS库：
+          <span class="label label-warning">VUE</span>&nbsp;
+          <span class="label label-info">jQuery</span>
+        </p>
+        <p>UI库：
+          <span class="label label-warning">Bootstrap</span>
+        </p>
+        <p>其它：
+          <span class="label label-warning">Canvas</span>
+        </p>
+      </blockquote>
+      <!-- <hr> -->
     </div>
-</div>
+  </div>
 
 
 
 
-<div class="wrapper wrapper-content">
-  <div class="row">
-    <div class="col-sm-7">
-      <div class="ibox float-e-margins">
-        <div class="ibox-title">
-          <h5>更新日志</h5>
-        </div>
-        <div class="ibox-content no-padding">
-          <div class="panel-body">
-            <div class="panel-group" id="version">
+  <div class="wrapper wrapper-content">
+    <div class="row">
+      <div class="col-sm-7">
+        <div class="ibox float-e-margins">
+          <div class="ibox-title">
+            <h5>更新日志</h5>
+          </div>
+          <div class="ibox-content no-padding">
+            <div class="panel-body">
+              <div class="panel-group" id="version">
 
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h5 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#version" href="#v23">v3.0.0</a>
-                    </h5>
-                </div>
-                <div id="v23" class="panel-collapse collapse in">
-                  <div class="panel-body">
-                    <ol>
-                      <li>增加React项目页</li>
-                      <li>增加组件类项目页</li>
-                    </ol>
-                  </div>
-                </div>
-              </div>
-
-              <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h5 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#version" href="#v23">v2.3.0</a>
-                    </h5>
-                </div>
-                <div id="v23" class="panel-collapse collapse">
-                  <div class="panel-body">
-                    <ol>
-                      <li>增加vue项目页</li>
-                      <li>增加后台页--文章上传</li>
-                    </ol>
-                  </div>
-                </div>
-              </div>
-
-
-              <div class="panel panel-default">
+                <div class="panel panel-default">
                   <div class="panel-heading">
-                      <h5 class="panel-title">
-                          <a data-toggle="collapse" data-parent="#version" href="#v20">v2.0.0</a>
-                      </h5>
+                    <h5 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#version" href="#v23">v3.0.0</a>
+                    </h5>
+                  </div>
+                  <div id="v23" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                      <ol>
+                        <li>增加React项目页</li>
+                        <li>增加组件类项目页</li>
+                        <li>后台页面 -> Echarts</li>
+                      </ol>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h5 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#version" href="#v23">v2.3.0</a>
+                    </h5>
+                  </div>
+                  <div id="v23" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <ol>
+                        <li>增加vue项目页</li>
+                        <li>增加后台页--文章上传</li>
+                      </ol>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h5 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#version" href="#v20">v2.0.0</a>
+                    </h5>
                   </div>
                   <div id="v20" class="panel-collapse collapse">
-                      <div class="panel-body">
-                          <ol>
-                              <li>增加canvas类目</li>
-                              <li>填入三个canvas页面及主页样式微调</li>
-                              <li>修复侧边栏展开bug</li>
-                          </ol>
-                      </div>
+                    <div class="panel-body">
+                      <ol>
+                        <li>增加canvas类目</li>
+                        <li>填入三个canvas页面及主页样式微调</li>
+                        <li>修复侧边栏展开bug</li>
+                      </ol>
+                    </div>
                   </div>
-              </div>
+                </div>
 
-              <div class="panel panel-default">
+                <div class="panel panel-default">
                   <div class="panel-heading">
-                      <h4 class="panel-title">
-                          <a data-toggle="collapse" data-parent="#version" href="#v11">v1.1.0</a>
-                      </h4>
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#version" href="#v11">v1.1.0</a>
+                    </h4>
                   </div>
                   <div id="v11" class="panel-collapse collapse">
-                      <div class="panel-body">
-                          <ol>
-                              <li>加入转盘抽奖和老虎机抽奖。</li>
-                              <li>修复页卡切换问题</li>
-                          </ol>
-                      </div>
+                    <div class="panel-body">
+                      <ol>
+                        <li>加入转盘抽奖和老虎机抽奖。</li>
+                        <li>修复页卡切换问题</li>
+                      </ol>
+                    </div>
                   </div>
-              </div>
-              <div class="panel panel-default">
+                </div>
+                <div class="panel panel-default">
                   <div class="panel-heading">
-                      <h4 class="panel-title">
-                          <a data-toggle="collapse" data-parent="#version" href="#v10">v1.0.0</a>
-                      </h4>
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#version" href="#v10">v1.0.0</a>
+                    </h4>
                   </div>
                   <div id="v10" class="panel-collapse collapse">
-                      <div class="panel-body">
-                          <ul>
-                              <li>Aric-Project Factory首次发布上线</li>
-                              <li>加入页面：</li>
-                              <ol>
-                              	<li>抽奖类--多人幸运抽奖</li>
-                              	<li>抽奖类--九宫格抽奖</li>
-                              </ol>
-                          </ul>
-                      </div>
-                  </div>
-              </div>
-            </div>
-          </div>
+                    <div class="panel-body">
+                      <ul>
+                        <li>Aric-Project Factory首次发布上线</li>
+                        <li>加入页面：</li>
+                        <ol>
+                         <li>抽奖类--多人幸运抽奖</li>
+                         <li>抽奖类--九宫格抽奖</li>
+                       </ol>
+                     </ul>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+     <div class="col-sm-5">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h5>划重点</h5>
+        </div>
+        <div class="ibox-content">
+          <p>本站的用途：</p>
+          <ol>
+            <li>用于个人项目的展示，不涉及商业活动</li>
+            <li>各类项目的归类、整合</li>
+          </ol>
+          <hr>
+          <div class="alert alert-warning">
+           个人邮箱地址：<br>wangyuanqi518@163.com
+         </div>
+         <div class="alert alert-warning">
+          Github传送门：<br>
+          <img src="https://img.alicdn.com/tfs/TB1c1pUmPihSKJjy0FeXXbJtpXa-32-32.png" class="git-icon">
+          <a href="https://github.com/Aric-sky" target="_blank">https://github.com/Aric-sky</a>
         </div>
       </div>
     </div>
-    <div class="col-sm-5">
-        <div class="ibox float-e-margins">
-            <div class="ibox-title">
-                <h5>划重点</h5>
-            </div>
-            <div class="ibox-content">
-              <p>本站的用途：</p>
-              <ol>
-                  <li>用于个人项目的展示，不涉及商业活动</li>
-                  <li>各类项目的归类、整合</li>
-              </ol>
-              <hr>
-              <div class="alert alert-warning">
-                 个人邮箱地址：<br>wangyuanqi518@163.com
-              </div>
-              <div class="alert alert-warning">
-								Github传送门：<br>
-								<img src="https://img.alicdn.com/tfs/TB1c1pUmPihSKJjy0FeXXbJtpXa-32-32.png" class="git-icon">
-								<a href="https://github.com/Aric-sky" target="_blank">https://github.com/Aric-sky</a>
-              </div>
-            </div>
-        </div>
-    </div>
   </div>
+</div>
 </div>
 
 
 
 
 
-  <!-- jquery -->
-  <script src="../js/jquery-1.11.3.js"></script>
-  <!-- bootstrap -->
-	<script src="../js/bootstrap.min.js"></script>
-	<!-- bootstrap -->
+<!-- jquery -->
+<script src="../js/jquery-1.11.3.js"></script>
+<!-- bootstrap -->
+<script src="../js/bootstrap.min.js"></script>
+<!-- bootstrap -->
 </body>
 </html>
