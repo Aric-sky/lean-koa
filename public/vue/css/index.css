@@ -1,7 +1,7 @@
 /*登陆页-样式开始*/
 html,body{
   height: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
   padding-bottom: 103px;
 }
 body{
@@ -35,6 +35,7 @@ body{
 
 .wrapper-content {
     padding: 20px;
+    min-height: 768px;
 }
 
 .ibox {
