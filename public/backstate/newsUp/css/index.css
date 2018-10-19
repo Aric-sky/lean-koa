@@ -1,15 +1,13 @@
 /*登陆页-样式开始*/
 html,body{
-  height: 100%;
-  overflow: hidden;
-  padding-bottom: 103px;
+  height: 100vh;
+  overflow: auto;
 }
 body{
   margin:0;
   box-sizing: border-box;
   font:14px Helvetica Neue,Helvetica,PingFang SC;
   position:relative;
-  // background: #393D49;
 }
 input,button,select,textarea{outline:none}
 textarea{resize:none;}
